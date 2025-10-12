@@ -19,5 +19,5 @@ A Java Client/Server system for managing shipments, vehicles, payments, and repo
 - Joshua Reid 
 - Karlicia Sutherland 
 - Kaiseion Taylor 
-- Anna Kay
+- Shaquana Kenyon
    
