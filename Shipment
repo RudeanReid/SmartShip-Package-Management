@@ -1,0 +1,135 @@
+import java.time.LocalDate;
+
+public class Shipment {
+	private LocalDate dateCreated;
+	private String senderInfo;
+	private int shipmentID;
+	private String recipientInfo;
+	private String status;
+	private String packageType;
+	private double weight;
+	private String zone;
+	private  int distance;
+	private int cost;
+
+	
+	public Shipment(String senderInfo,int shipmentID,String recipientInfo,String status,String packageType,double weight,String zone,int distance,int cost) {
+		this.cost=calcCost(distance, weight); 
+		this.dateCreated=LocalDate.now();
+		this.distance=calcDistance(zone);
+		this.packageType=packageType;
+		this.recipientInfo=recipientInfo;
+		this.senderInfo=senderInfo;
+		this.shipmentID=shipmentID;
+		this.status=status;
+		this.weight=weight;
+		this.zone=zone;
+	}
+	public Shipment(Shipment ship) {
+		this.cost=ship.cost;
+		this.dateCreated=LocalDate.now();
+		this.distance=ship.distance;
+		this.packageType=ship.packageType;
+		this.recipientInfo=ship.recipientInfo;
+		this.senderInfo=ship.senderInfo;
+		this.shipmentID=ship.shipmentID;
+		this.status=ship.status;
+		this.weight=ship.weight;
+		this.zone=ship.zone;
+	}
+	public LocalDate getDateCreated() {
+		return dateCreated;
+	}
+	public void setDateCreated(LocalDate dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+	public String getSenderInfo() {
+		return senderInfo;
+	}
+	public void setSenderInfo(String senderInfo) {
+		this.senderInfo = senderInfo;
+	}
+	public int getShipmentID() {
+		return shipmentID;
+	}
+	public void setShipmentID(int shipmentID) {
+		this.shipmentID = shipmentID;
+	}
+	public String getRecipientInfo() {
+		return recipientInfo;
+	}
+	public void setRecipientInfo(String recipientInfo) {
+		this.recipientInfo = recipientInfo;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getPackageType() {
+		return packageType;
+	}
+	public void setPackageType(String packageType) {
+		this.packageType = packageType;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+	public String getZone() {
+		return zone;
+	}
+	public void setZone(String zone) {
+		this.zone = zone;
+	}
+	public int getDistance() {
+		return distance;
+	}
+	public void setDistance(int distance) {
+		this.distance = distance;
+	}
+	public int getCost() {
+		return cost;
+	}
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+	 public int calcCost(int distance, double weight) {
+         int distanceRate = 100; // per km
+         int weightRate = 50;    // per kg
+         int cost = (distance * distanceRate) + (int)(weight * weightRate);
+         return cost;
+     }
+	 
+	public int calcDistance(String zone) {
+		int z;
+        try {
+            z = Integer.parseInt(zone);
+        } catch (NumberFormatException e) {
+            return 0; 
+        }
+        if (z == 1) {
+            return 10;  
+        } else if (z== 2) {
+            return 25;  
+        } else if (z== 3) {
+            return 40;  
+        } else if (z == 4) {
+            return  55; 
+        } else {
+            return 0;   
+        
+    }
+       
+	}
+	@Override
+	public String toString() {
+		return "Shipment [dateCreated=" + dateCreated + ", senderInfo=" + senderInfo + ", shipmentID=" + shipmentID
+				+ ", recipientInfo=" + recipientInfo + ", status=" + status + ", packageType=" + packageType
+				+ ", weight=" + weight + ", zone=" + zone + ", distance=" + distance + ", cost=" + cost + "]";
+	}
+	
+}
