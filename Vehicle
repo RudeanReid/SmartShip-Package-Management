@@ -1,0 +1,71 @@
+public class Vehicle {
+	private int vehicleId;
+	private int capacityNum;
+	private String type;
+	private String licensePlate;
+	private float capacityWeight;
+	private boolean assigned;
+	
+	public Vehicle(int vehicleId,int capacityNum, String type,String licensePlate,float capacityWeight ) {
+		this.capacityNum=capacityNum;
+		this.capacityWeight=capacityWeight;
+		this.licensePlate=licensePlate;
+		this.type=type;
+		this.vehicleId=vehicleId;
+		this.assigned=false;
+	}
+	public Vehicle(Vehicle veh) {
+		this.capacityNum=veh.capacityNum;
+		this.capacityWeight=veh.capacityWeight;
+		this.licensePlate=veh.licensePlate;
+		this.type=veh.type;
+		this.vehicleId=veh.vehicleId;
+	}
+	public void assignVehicle() {
+		this.assigned=true;
+		System.out.println("Vehicle" + vehicleId +"out for shipment.");
+	}
+	public int getVehicleId() {
+		return vehicleId;
+	}
+	public void setVehicleId(int vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+	public int getCapacityNum() {
+		return capacityNum;
+	}
+	public void setCapacityNum(int capacityNum) {
+		this.capacityNum = capacityNum;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getLicensePlate() {
+		return licensePlate;
+	}
+	public void setLicensePlate(String licensePlate) {
+		this.licensePlate = licensePlate;
+	}
+	public float getCapacityWeight() {
+		return capacityWeight;
+	}
+	public void setCapacityWeight(float capacityWeight) {
+		this.capacityWeight = capacityWeight;
+	}
+	public boolean isAssigned() {
+		return assigned;
+	}
+	public void setAssigned(boolean assigned) {
+		this.assigned = assigned;
+	}
+	@Override
+	public String toString() {
+		return "Vehicle [vehicleId=" + vehicleId + ", capacityNum=" + capacityNum + ", type=" + type + ", licensePlate="
+				+ licensePlate + ", capacityWeight=" + capacityWeight + ", assigned=" + assigned + "]";
+	}
+	
+
+}
