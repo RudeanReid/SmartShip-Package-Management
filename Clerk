@@ -1,0 +1,30 @@
+import java.util.List;
+
+public class Clerk extends User{
+
+	public Clerk(int userID, String firstName, String lastName, String email, int phone, String userName,
+			String password) {
+		super(userID, firstName, lastName, email, phone, userName, password);
+	}
+	
+	public void processShipment(Shipment shipment, List<Vehicle> vehicle ) {
+		boolean assigned=false;
+		
+		for (Vehicle v: vehicle) {
+			if(!v.isAssigned()) {
+				v.assignVehicle();
+				shipment.setStatus("Vehicle assigned:" +v.getVehicleId());
+				assigned=true;
+				break;
+			}
+		}
+		if(!assigned) {
+			System.out.println("Error, no vehicle assigned.");
+		}
+	}
+	public void handlePayment(Shipment shipment) {
+		System.out.println("Payment of "+shipment.getCost() + "made.");
+		System.out.println("PAyment Complete");
+	}
+
+}
